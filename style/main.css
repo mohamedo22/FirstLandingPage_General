@@ -1,3 +1,7 @@
+body{
+    width: 100vw !important;
+    overflow-x: hidden !important;
+}
 .nav-bar-custuom{
     -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -16,6 +20,52 @@
     position: relative;
     opacity: 0;
 }
+.buttonAnimation
+{
+    position: relative !important;
+    overflow: hidden;
+    z-index: 1;
+}
+.buttonAnimation::before
+{
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    background-color: #0E104B;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    border-radius: 50%;
+    transition: all 500ms;
+    z-index: 1;
+}
+.buttonAnimation:hover::before
+{
+    scale: 13;
+}
+.rightToLeft {
+    animation: rightToLeft 1s infinite alternate ease-in-out;
+}
+.ribbonRotate {
+    animation: ribbonRotate 2s infinite alternate ease-in-out;
+}
+@keyframes ribbonRotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-30deg);
+    }
+}
+@keyframes rightToLeft {
+    0% {
+        transform: translateX(-2rem);
+    }
+    100% {
+        transform: translateX(-6rem); /* Adjust to the distance you need */
+    }
+}
+
 @keyframes showDropdown
 {
     100%
@@ -23,4 +73,9 @@
         visibility: visible;
         opacity: 1;
     }
+}
+*::selection
+{
+    background-color: rgb(250 204 21 / 1);
+    color: white;
 }
